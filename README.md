@@ -1,7 +1,3 @@
-Got it! Here’s a **simple, clean README** that avoids mentioning Grafana and does not use tables, keeping it fully generic for Apica Ascent:
-
----
-
 # Node Exporter Dashboard
 
 ## Overview
