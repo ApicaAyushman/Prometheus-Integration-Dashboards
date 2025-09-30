@@ -1,0 +1,193 @@
+{
+    "header": {
+        "data_source_type": "apica_ascent_prometheus",
+        "dateTimeRange": true,
+        "dropdowns": []
+    },
+    "tabs": [
+        {
+            "key": "haproxy-exporter",
+            "order": "1",
+            "queriesList": [
+                {
+                    "chart_type": "line",
+                    "data_source_name": "Ascent Metrics",
+                    "name": "Frontend Up query",
+                    "options": {
+                        "description": "Frontend Up query",
+                        "order": 1,
+                        "plot": {
+                            "errorColumn": "",
+                            "groupBy": "",
+                            "x": "Timestamp",
+                            "xLabel": "Timestamp",
+                            "y": [
+                                "value"
+                            ],
+                            "yLabel": "value"
+                        },
+                        "upperLimit": ""
+                    },
+                    "query": "haproxy_up{type=\"frontend\"}&duration=1h&step=5m",
+                    "schema": ""
+                },
+                {
+                    "chart_type": "line",
+                    "data_source_name": "Ascent Metrics",
+                    "name": "Backend Up query",
+                    "options": {
+                        "description": "Backend Up query",
+                        "order": 2,
+                        "plot": {
+                            "errorColumn": "",
+                            "groupBy": "",
+                            "x": "Timestamp",
+                            "xLabel": "Timestamp",
+                            "y": [
+                                "value"
+                            ],
+                            "yLabel": "value"
+                        },
+                        "upperLimit": ""
+                    },
+                    "query": "haproxy_up{type=\"backend\"}&duration=1h&step=5m",
+                    "schema": ""
+                },
+                {
+                    "chart_type": "line",
+                    "data_source_name": "Ascent Metrics",
+                    "name": "Request Rate query",
+                    "options": {
+                        "description": "Request Rate query",
+                        "order": 3,
+                        "plot": {
+                            "errorColumn": "",
+                            "groupBy": "",
+                            "x": "Timestamp",
+                            "xLabel": "Timestamp",
+                            "y": [
+                                "value"
+                            ],
+                            "yLabel": "value"
+                        },
+                        "upperLimit": ""
+                    },
+                    "query": "rate(haproxy_frontend_http_requests_total[1m])&duration=1h&step=5m",
+                    "schema": ""
+                },
+                {
+                    "chart_type": "line",
+                    "data_source_name": "Ascent Metrics",
+                    "name": "Average Response Time query",
+                    "options": {
+                        "description": "Average Response Time query",
+                        "order": 4,
+                        "plot": {
+                            "errorColumn": "",
+                            "groupBy": "",
+                            "x": "Timestamp",
+                            "xLabel": "Timestamp",
+                            "y": [
+                                "value"
+                            ],
+                            "yLabel": "value"
+                        },
+                        "upperLimit": ""
+                    },
+                    "query": "haproxy_server_http_response_time_seconds_sum / haproxy_server_http_response_time_seconds_count&duration=1h&step=5m",
+                    "schema": ""
+                },
+                {
+                    "chart_type": "line",
+                    "data_source_name": "Ascent Metrics",
+                    "name": "Current Frontend Sessions query",
+                    "options": {
+                        "description": "Current Frontend Sessions query",
+                        "order": 5,
+                        "plot": {
+                            "errorColumn": "",
+                            "groupBy": "",
+                            "x": "Timestamp",
+                            "xLabel": "Timestamp",
+                            "y": [
+                                "value"
+                            ],
+                            "yLabel": "value"
+                        },
+                        "upperLimit": ""
+                    },
+                    "query": "haproxy_frontend_current_sessions&duration=1h&step=5m",
+                    "schema": ""
+                },
+                {
+                    "chart_type": "line",
+                    "data_source_name": "Ascent Metrics",
+                    "name": "Current Backend Sessions query",
+                    "options": {
+                        "description": "Current Backend Sessions query",
+                        "order": 6,
+                        "plot": {
+                            "errorColumn": "",
+                            "groupBy": "",
+                            "x": "Timestamp",
+                            "xLabel": "Timestamp",
+                            "y": [
+                                "value"
+                            ],
+                            "yLabel": "value"
+                        },
+                        "upperLimit": ""
+                    },
+                    "query": "haproxy_backend_current_sessions&duration=1h&step=5m",
+                    "schema": ""
+                },
+                {
+                    "chart_type": "line",
+                    "data_source_name": "Ascent Metrics",
+                    "name": "HTTP 4xx Errors query",
+                    "options": {
+                        "description": "HTTP 4xx Errors query",
+                        "order": 7,
+                        "plot": {
+                            "errorColumn": "",
+                            "groupBy": "",
+                            "x": "Timestamp",
+                            "xLabel": "Timestamp",
+                            "y": [
+                                "value"
+                            ],
+                            "yLabel": "value"
+                        },
+                        "upperLimit": ""
+                    },
+                    "query": "rate(haproxy_frontend_http_responses_total{code=~\"4..\"}[1m])&duration=1h&step=5m",
+                    "schema": ""
+                },
+                {
+                    "chart_type": "line",
+                    "data_source_name": "Ascent Metrics",
+                    "name": "HTTP 5xx Errors query",
+                    "options": {
+                        "description": "HTTP 5xx Errors query",
+                        "order": 8,
+                        "plot": {
+                            "errorColumn": "",
+                            "groupBy": "",
+                            "x": "Timestamp",
+                            "xLabel": "Timestamp",
+                            "y": [
+                                "value"
+                            ],
+                            "yLabel": "value"
+                        },
+                        "upperLimit": ""
+                    },
+                    "query": "rate(haproxy_frontend_http_responses_total{code=~\"5..\"}[1m])&duration=1h&step=5m",
+                    "schema": ""
+                }
+            ],
+            "title": "haproxy-exporter",
+            "type": "metrics"
+        }
+    ]
+}
